@@ -19,18 +19,6 @@ app.run(function($ionicPlatform) {
     superfeedr.auth('kmadill', '71c25177b4bfdde3380ca899fe1b245d');
     superfeedr.setOnLoadCallback(feederInit);
 
-    
-    localStorage.setItem('phonegaptest', 'yes');
-    var testLS = localStorage.getItem('phonegaptest');
-
-    if (testLS == null) {
-      alert('No Local Storage');
-    }
-    else {
-      alert('Yes, Local Storage');
-    }
-    
-
   });
 });
 
