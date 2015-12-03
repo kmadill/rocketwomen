@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html ng-app="rocketwomen">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Rocket Women</title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- superfeedr API  -->
+    <script type="text/javascript" src="js/superfeedr.js"></script>
+    
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+
+  </head>
+
+
+  <body ng-controller="rocketCtrl">
+    
+    <ion-side-menus>
+      <ion-side-menu side="left">
+        <ion-header-bar class="bar bar-header bar-positive">
+          <h1 class="title">Menu</h1>
+        </ion-header-bar>
+        <ion-content>
+          <div class="list" ng-click="toggleMenu()">
+            <a class="item item-icon-left" href="#/" ng-click="loadFeeds()"><i class="icon ion-ios-paper"></i> Articles</a>
+            <a class="item item-icon-left" href="#/about"><i class="icon ion-woman"></i> About</a>
+            <a class="item item-icon-left" href="#/contact"><i class="icon ion-chatbubbles"></i> Contact</a>
+          </div>
+        </ion-content>
+      </ion-side-menu>
+      <ion-side-menu-content>
+        <ion-header-bar class="bar bar-header bar-royal">
+          <button class="button icon ion-navicon" ng-click="toggleMenu()"></button>
+          <h1 class="title">Rocket Women</h1>
+          <img class="button" style = "height:15px;" src="img/rocketlogo.png"></img>
+        </ion-header-bar>
+        <ion-nav-view></ion-nav-view>
+      </ion-side-menu-content>
+    </ion-side-menus>
+    
+    <script id="home.html" type="text/ng-template">
+      <ion-view view-title="Home">
+        <ion-content>
+
+          <div class="card">
+            <div class="item item-text-wrap">
+              <img src="img/rocketbanner.jpg" width="50%" align="middle" style="display: block; margin-left:auto; margin-right:auto;">
+            </div>
+          </div>
+            <div class = "list card">
+              <span ng-bind-html="loadFeeds()"></span>
+            </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="about.html" type="text/ng-template">
+      <ion-view view-title="about">
+        <ion-content>
+
+          <div class="list card">
+
+            <div class="item item-icon-left">
+              <i class="icon ion-paper-airplane"></i><h2>Mission Statement</h2>
+            </div>
+            <div class="item item-divider">
+              1. To inspire women to pursue a career in the space and technology industries.
+            </div>
+            <div class="item item-divider">
+              2. To provide a platform through which women interested in the space and technology industries can gain information about a career and have questions answered. 
+            </div>
+            <div class="item item-divider">
+              3. To allow successful women in space and technology to promote their story and advice to women on how to gain a fulfilling career in these industries.
+            </div>
+          </div>
+
+          <div class="list card">
+            <div class="item item-avatar">
+              <img src="img/rocketlogo.png">
+              <h2>About Me</h2>
+              <p>Vinita Marwaha Madill</p>
+            </div>
+          <div class="item item-image">
+            <img src="img/vinita.jpg">
+          </div>
+            <div class="item item-body">
+              My name’s Vinita Marwaha Madill and I’m an advocate for women in STEM. I’ve been involved in spacesuit design for the European Space Agency (ESA) along with working as an Operations Engineer for the International Space Station at the German Aerospace Centre (DLR). Being based at Germany’s version of “Mission Control”, I guided astronauts through experiments on the ISS and was involved in astronaut training. I’m passionate about human spaceflight and exploration. My mission is to inspire women around the world and provide advice on working in the space and technology industries. Over my career I’ve worked with and gained advice from amazing women and I wanted to share this with everyone. giving these women a voice & platform.
+              <br><br>
+              I’m interviewing successful women from the space industry, technology, aerospace and science research. This includes astronauts, government policy makers, commercial spaceflight employees and engineers. Articles and videos from these interviews will be posted on the site to hopefully inspire you and show that you can be a rocket scientist too! I’ll also be posting interesting news and advice on working in the space and tech industries, including current events.
+            </div>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="contact.html" type="text/ng-template">
+      <ion-view view-title="contact">
+        <ion-content>
+                  
+          <div class="list card">
+            <div class="item item-divider">Contact Info</div>
+            
+            <a href="mailto:vinita@rocket-women.com?subject=Rocket Women" target="_blank" class="item item-icon-left">
+              <i class="icon ion-android-mail"></i>
+              Email 
+              <span class="item-note">vinita@rocket-women.com</span>
+            </a>
+
+            <a href="https://twitter.com/@Rocket_Woman1" target="_blank" class="item item-icon-left">
+              <i class="icon ion-social-twitter"></i>
+              Twitter
+              <span class="item-note">@Rocket_Women1</span>
+            </a>
+
+            <a href="https://www.instagram.com/vmarwaha/" target="_blank" class="item item-icon-left">
+              <i class="icon ion-social-instagram"></i>
+              Instagram
+              <span class="item-note">vmarwaha</span>
+            </a>
+
+            <a href="https://www.facebook.com/Rocket-Women-560452863965899/" target="_blank" class="item item-icon-left">
+              <i class="icon ion-social-facebook"></i>
+              Facebook
+              <span class="item-note">Rocket Women</span>
+            </a>
+
+            <a href="http://www.rocket-women.com" target="_blank" class="item item-icon-left">
+              <i class="icon ion-android-desktop"></i>
+              Website
+              <span class="item-note">http://www.rocket-women.com</span>
+            </a>
+
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+  </body>
+</html>
