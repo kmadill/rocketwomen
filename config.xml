@@ -7,6 +7,9 @@
   <author email="vinita@rocket-women.com" href="http://www.rocket-women.com/">
       Vinita Marwaha
     </author>
+
+    <preference name="permissions" value="none"/>
+    
   <content src="index.html"/>
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>
