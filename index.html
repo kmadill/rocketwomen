@@ -54,7 +54,7 @@
       </ion-side-menu-content>
     </ion-side-menus>
     
-    <script id="home.html" type="text/ng-template">
+    <script id="home.html" type="text/ng-template" ng-init="loadFeeds()">
       <ion-view view-title="Home">
         <ion-content>
 
@@ -64,7 +64,7 @@
             </div>
           </div>
             <div class = "list card">
-              <span ng-bind-html="loadFeeds()"></span>
+              <span ng-bind-html="feedHTML"></span>
             </div>
         </ion-content>
       </ion-view>

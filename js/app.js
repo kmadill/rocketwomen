@@ -16,8 +16,8 @@ app.run(function($ionicPlatform) {
       StatusBar.styleDefault();
     }
 
-    superfeedr.auth('kmadill', '71c25177b4bfdde3380ca899fe1b245d');
-    superfeedr.setOnLoadCallback(feederInit);
+    //superfeedr.auth('kmadill', '71c25177b4bfdde3380ca899fe1b245d');
+    //superfeedr.setOnLoadCallback(feederInit);
 
   });
 });
@@ -49,30 +49,30 @@ app.controller('rocketCtrl', function($scope, $ionicSideMenuDelegate){
     $ionicSideMenuDelegate.toggleLeft();
   }
 
-  $scope.loadFeeds = function(){
-    var feeds = JSON.parse(localStorage.getItem('feeds'));
-    console.log(feeds.feed.entries[1].title);
 
-    var output = '';
 
-    for (i = 0; i < feeds.feed.entries.length; i++) { 
-      output += '<a href="'+ feeds.feed.entries[i].link +'" target = "_blank" class="item item-icon-right"><i class="icon ion-arrow-right-c"></i>' + 
-              feeds.feed.entries[i].title + '</a>';
-    }
-            
-    return output;
 
-  }
-});
 
-function feederInit(){
+$scope.loadFeeds = function() {
   var output = '';
-    var feed = new superfeedr.Feed("http://rocket-women.com/feed/");   
-    feed.setNumEntries(5);
+  superfeedr.auth('kmadill', '71c25177b4bfdde3380ca899fe1b245d');
+  var feed = new superfeedr.Feed("http://rocket-women.com/feed/");   
+  feed.setNumEntries(5);
 
-    feed.load(function(result){
-      console.log(result);
-      localStorage.setItem('feeds', JSON.stringify(result));
-    });
+  feed.load(function(result){
+    for (i = 0; i < result.feed.entries.length; i++) { 
+      output += '<a href="'+ result.feed.entries[i].link +'" target = "_blank" class="item item-icon-right"><i class="icon ion-arrow-right-c"></i>' + 
+              result.feed.entries[i].title + '</a>';
+    }
+  $scope.feedHTML = output;
+  $scope.$apply();
+
+
+  });
 
 }
+
+
+});
+
+
