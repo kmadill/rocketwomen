@@ -21,7 +21,15 @@ app.run(function($ionicPlatform) {
 
     
     localStorage.setItem('phonegaptest', 'yes');
-    alert(localStorage.getItem('phonegaptest'));
+    var testLS = localStorage.getItem('phonegaptest');
+
+    if (testLS == null) {
+      alert('No Local Storage');
+    }
+    else {
+      alert('Yes, Local Storage');
+    }
+    
 
   });
 });
